@@ -31,7 +31,7 @@ router.get('/todo', function(req, res){
 	
 	var keywordQuote = 'inspire';
 	var keywordWeather = 'Vancouver';
-	var accessKeyWeather = 'f38e20be28d7a7beab53ba483162213f';
+	var accessKeyWeather = '****'; // key is required
 	
 	var weatherURL = 
 		'http://api.weatherstack.com/current?access_key=' + accessKeyWeather + '&query=' + keywordWeather
@@ -346,7 +346,7 @@ router.get('/results', function(req, res) {
 
 router.get('/weather', function(req, res) {
 	var keyword = 'Vancouver';
-	var accessKey = '01fff300ae102e9953fdd211e386f301';
+	var accessKey = '****'; // key is required
 
 	request(
 		'http://api.weatherstack.com/current? access_key=' + accessKey + '& query=' + keyword,
