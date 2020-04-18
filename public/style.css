@@ -1,0 +1,673 @@
+* {
+	padding: 0px; margin: 0px;
+	box-sizing: border-box;
+}
+body {
+	
+	background: #859398; /* fallback for old browsers */
+	background: -webkit-linear-gradient( to right, #859398, #313B58); 
+	/* Chrome 10-25, Safari 5.1-6 */ 
+	background: linear-gradient( to right, #859398, #313B58); 
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+}
+.headRow {
+	background-color: #283048;
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	top: 0;
+	z-index: 1;
+	width: 100%;
+}
+.bannerH1 {
+	color: white;
+	font-size: 2rem;
+	margin-top: 20px; margin-bottom: 25px;
+	padding-left: 20px;
+}
+
+.navbarStyle {
+	background-color: #545b62; color: #fffff0;
+	width: 100%;
+	position: fixed;
+	left: 0; top: 150;
+	text-align: left;
+	padding-left: 25px;
+	z-index: 999;
+}
+
+.nav-link {
+	color: white;
+	font-size: 19px;
+}
+
+.nav-link:hover{
+	color: black;
+}
+
+.navbar-toggler {
+	float: left;
+	margin-right: 15px;
+	padding: 9px 10px;
+	margin-top: -5px; margin-bottom: -6px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+}
+
+.toggleIcon {
+	width: 1.5em;
+	height: 1.5em;
+	vertical-align: middle;
+	background: no-repeat center center;
+	background-size: 100% 100%;
+}
+
+.leftBar {
+	display: flex;
+	width: 16%;
+	flex-direction: column;
+	margin-left: 0%;
+	margin-right: 0%;
+}
+
+.mainContainer {
+	display: flex; flex-direction: row;	flex-wrap: wrap;
+	justify-content: space-around;
+	height: 100%; width: 100%;
+	padding-bottom: 20px;
+	margin-top: 135px; margin-bottom: 20px;
+}
+.calendar {
+	/* display: flex;
+  flex-direction: column; */
+	border-style: solid; border-color: gray;
+	width: 45%; height: 100%;
+	padding: 20px;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+}
+.calendarTop{
+	display: flex; flex-direction: row; 
+	justify-content: space-between;
+	align-items: center;
+	border-style: solid; border-color: gray;
+	text-align: center;
+}
+.calendarTop *{
+	text-align: center; font-size: 35px;
+}
+.calendar .years {
+	display: none;
+}
+.calendar-dates{
+	border-style: solid; border-color: gray;
+}
+
+.calendar .title {
+	text-align: center;
+	font-size: 20pt;
+}
+
+.calendar .calendar-btn {
+	float: left;
+	background-color: #24aeff;
+	color: white;
+	text-align: center;
+	font-size: 14pt;
+	padding-top: 5px; padding-bottom: 5px;
+	position: relative;
+	width: 20%;
+	cursor: pointer;
+	transition: 0.5s background-color;
+}
+
+.calendar .calendar-btn:hover {
+	background-color: #1f71a1;
+}
+
+.calendar .year-btn {
+	float: right;
+}
+
+.calendar .calendar-dates .days .day {
+	display: flex; justify-content: center; align-items: center;
+	float: left;
+	width: 12%;
+	margin: 1%;
+	padding: 1%;
+	font-size: 1.15rem;
+	/* text-align: center; */
+	border-radius: 10px;
+	border: solid 1px #ddd;
+}
+.days{
+	border-bottom-style: solid; border-bottom-color: gray;
+}
+.close{
+	float: left;
+	width: 12%;
+	margin: 1%;
+	padding: 1%;
+	font-size: 1.15rem;
+	text-align: center;
+	border-radius: 10px;
+	border: solid 1px #ddd;
+}
+
+.calendar .calendar-dates .days .day.blank {
+	background-color: white;
+	border: none;
+}
+
+.calendar .calendar-dates .days .day.selected {
+	background-color: #1caff6;
+	color: white;
+	cursor: pointer;
+	opacity: 0.5;
+	transition: 0.5s opacity;
+}
+
+.calendar .calendar-dates .days .day.selected:hover {
+	opacity: 1;
+}
+
+.calendar .calendar-dates .days .day.label {
+	height: 40px;
+	background-color: white;
+	color: black;
+	border: none;
+	font-weight: bold;
+}
+.dayLink {
+	color: black;
+}
+.dayLink:hover{
+	color: while;
+}
+
+.clear {
+	clear: both;
+}
+
+.required:after {
+	content: ' *';
+	color: navy blue;
+}
+
+input[type='radio'] {
+	-ms-transform: scale(1.25); /* IE 9 */
+	-webkit-transform: scale(1.25); /* Chrome, Safari, Opera */
+	transform: scale(1.25);
+}
+.rdoSpan {
+	float: left;
+	margin-left: 5px;
+}
+
+.createNewPage {
+	display: flex; flex-direction: column;
+	width: 40%;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+.contactPage {
+	display: flex; flex-direction: column;
+	width: 40%;
+	align-items: center; justify-content: center;
+	padding-bottom: 0px;
+	border-style: solid; border-color: gray;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.contactPageMainDiv {
+	width: 85%;
+}
+
+.registerPage{
+	display: flex; flex-direction: column;
+	width: 30%;
+	align-items: center; justify-content: center;
+	padding-bottom: 0px;
+	margin-right: 5%;
+	border-style: solid; border-color: gray;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.btnSubmit,
+.btnSubmit:active,
+.btnSubmit:hover,
+.btnSubmit:focus{
+	padding-left: 20px;	padding-right: 20px;
+	width: fit-content;
+	background-color: #374263;
+	border-style: solid; border-color: gray;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+}
+.btnArrow,
+.btnArrow:active,
+.btnArrow:hover,
+.btnArrow:focus{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	border-radius: 0px;
+	font-size: 2rem;
+	/* padding-left: 20px; padding-right: 20px; */
+	height: 100%; 
+	width: 10%;
+	background-color: #757a8a; 
+	border-style: solid; border-color: gray;
+	/* box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4); */
+}
+
+.todayBar {
+	display: flex; flex-direction: column;
+	width: 100%; height: 100%;
+	border-style: solid; border-color: gray;
+	margin-left: 0%; margin-right: 0%;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+}
+.todayBar div h1{
+	font-size: 7rem; 
+	margin-bottom: 0px;
+}
+
+.quoteDiv {
+	display: flex; flex-direction: column;
+	align-items: center; justify-content: space-around;
+	height: 50%; width: 100%;
+	border-style: solid; border-color: gray;
+	padding-left: 1rem; padding-right: 1rem;
+	padding-top: 1rem;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.quotePStyle {
+	font-size: 1rem;
+}
+
+.startToDoIndexPage {
+	display: flex; flex-direction: column;
+	padding-left: 0%; padding-top: 5%;
+	/* align-items: center;  */
+	justify-content: space-around;
+	height: 45%;
+	border-style: solid; border-color: gray;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.weatherBar {
+	display: flex; flex-direction: column;
+	justify-content: space-around; align-items: center;
+	border-style: solid; border-color: gray;
+	width: 100%; height: 67%;
+	padding-left: 0px; padding-right: 1rem;
+	padding-top: 1rem;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.contactBar {
+	display: flex; flex-direction: column;
+	justify-content: space-around; align-items: center;
+	border-style: solid; border-color: gray;
+	width: 100%; height: 28%;
+	padding-left: 1rem;	padding-right: 1rem;
+	padding-top: 1rem; padding-bottom: 1rem;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.btnContact,
+.btnContact:active,
+.btnContact:hover,
+.btnContact:focus{
+	width: 100%;
+	margin-top: 0px; margin-bottom: 0rem;
+	padding-top: 0px; padding-bottom: 0rem;
+}
+#showPage {
+	overflow-y: auto;
+	display: flex; flex-direction: row;
+	width: 48%;
+	justify-content: space-between;	align-items: flex-start;
+}
+
+.showPageStart {
+	display: flex; flex-direction: column;
+	width: 47%; height: inherit;
+	justify-content: center;
+	overflow-y: auto;
+	padding-left: 0px;
+	border-style: solid; border-color: gray;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+}
+.fa-ul{
+	padding-left: 0.5rem;
+}
+
+.showPageEditButton{
+	display: flex; flex-direction: row; 
+	justify-content: flex-start;
+}
+
+.radioStatusClass {
+	display: flex; flex-direction: row;
+	justify-content: left;
+	padding-bottom: 0px;
+}
+
+#startDateDiv {
+	display: inline-block;
+}
+#endDateDiv {
+	display: inline-block;
+	float: right;
+}
+
+.footerStyle {
+	position: fixed; bottom: 0;
+	display: flex; justify-content: flex-end;
+	background-color: #283048;
+	height: 28px; width: 100%;
+	
+}
+.footerTextDiv {
+	display: flex; align-items: center;
+	font-size: 0.8rem;
+	padding-right: 15px;
+	
+}
+.footerTextDiv {
+	color: white;
+	font-size: 0.75em;
+}
+
+/* ************************************************  @media screen and (max-width: 1200px) */
+@media screen and (max-width: 1200px) {
+	/* .mainContainer{
+		justify-content: flex-end;
+	} */
+	.calendar{
+		margin-bottom: 1rem;
+	}
+	.quotePStyle {
+		font-size: 0.8rem;
+	}
+	
+	#dateDiv {
+		display: flex; flex-direction: row;
+		justify-content: space-between;
+	}
+	#startDateDiv {
+		width: 47%;
+	}
+	#endDateDiv {
+		width: 47%;
+	}
+	.leftBar {
+		width: 50%;
+		padding-left: 5%; padding-right: 5%;
+		margin-bottom: 5%;
+	}
+	
+	/* .btnSubmit,
+	.btnSubmit:active,
+	.btnSubmit:hover,
+	.btnSubmit:focus{
+		width: fit-content;
+	} */
+
+	.btnContact,
+	.btnContact:active,
+	.btnContact:hover,
+	.btnContact:focus{
+		width: fit-content;
+		margin-top: 0px;
+		padding-top: 0px;
+		padding-bottom: 0rem;
+	}
+	.weatherBar{
+		height: 70%;
+	}
+	.contactBar > p{
+		margin-bottom: 0px;
+	}
+	
+	.showPageEditButton{
+		display: flex; flex-direction: column; 	
+	}
+	.showPageEditButton a{
+		padding-bottom: 0.5rem;
+	}
+}
+
+/* ************************************************  @media screen and (max-width: 992px) */
+@media screen and (max-width: 992px) {
+	
+	
+	.calendar .calendar-dates .days .day {
+		font-size: 0.8rem;
+		
+	}
+	.calendar .calendar-dates .days .day.label {
+		height: 30px;
+		
+	}
+	.radioStatusClass {
+		display: flex; flex-direction: column;
+	}
+	.todayBar div h1{
+		font-size: 5rem;
+	}
+	.leftBar {
+		width: 50%;
+		padding-left: 5%; padding-right: 5%;
+		margin-bottom: 5%;
+	}
+	
+	.registerPage{
+		width: 40%;
+	}
+	
+	.contactBar > p{
+		margin-bottom: 1rem;
+	}
+}
+/* ************************************************  @media screen and (max-width: 768px) */
+
+@media only screen and (max-width: 767px) {
+	.nav-collapse.collapse {
+		height: auto !important;
+		overflow: visible !important;
+		background-color: #4775d1;
+		color: #fffff0;
+	}
+	.bannerH1 {
+		color: white;
+		font-size: 26px;
+		padding-top: 15px;
+	}
+
+	.mainContainer {
+		flex-direction: column;
+		margin-top: 115px;
+	}
+	.alert{
+		padding-bottom: 0px;
+		margin-bottom: 0px;
+		padding-top: 9%;
+		width: 90%;
+		padding-left: 15%;
+	}
+	.calendar {
+		position: sticky;
+		/* padding-top: 30px; */
+		width: 100%;
+		margin-bottom: 10px;
+		padding: 5%;
+		border-style: none;
+		box-shadow: none;
+	}
+	.calendar #calendarSide{
+		border-style: solid; border-color: gray;
+		box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+	}
+	.days{
+		border-top-style: solid; border-top-color: gray;
+		border-bottom-style: none;
+	}
+	.calendarTop{
+		height: 50px;
+		border-style: none;
+	}
+	.calendar-dates{
+		border-style: none;
+	}
+	
+	.calendar .calendar-dates .days .day {
+		font-size: 0.8rem;
+		text-align: center;
+		
+	}
+	.calendar .calendar-dates .days .day.label {
+		height: 30px;
+	}
+	
+	.contactPage {
+		width: 100%;
+		border-style: none;
+	}
+	
+	.contactPageMainDiv {
+		width: 90%;
+		justify-content: center;
+		padding-left: 5%; padding-right: 5%;
+		border-style: solid; border-color: gray;
+		box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+	}
+	.leftBar {
+		width: 100%;
+		padding-left: 5%; padding-right: 5%;
+		margin-bottom: 5%;
+	}
+	
+	.quoteDiv {
+		margin-bottom: 5%;
+	}
+	
+	.quotePStyle {
+		font-size: 0.75rem;
+	}
+	
+	.weatherBar {
+		margin-bottom: 5%;
+	}
+	
+	#showPage {
+		display: flex; flex-direction: column;
+		width: 100%;
+		justify-content: space-between;
+	}
+	.showPageStart {
+		width: 90%;
+		justify-content: center;
+		margin-left: 5%; margin-right: 5%;
+		margin-bottom: 5%;
+	}
+	#dateDiv {
+		display: flex; flex-direction: column;
+	}
+	#startDateDiv {
+		width: 100%;
+	}
+	#endDateDiv {
+		/* display: block; */
+		float: left;
+		width: 100%;
+	}
+	.showPageEditButton{
+		display: flex; flex-direction: row; justify-content: flex-start; 	
+	}
+	.showPageEditButton a{
+		padding-bottom: 0rem;
+	}
+	.radioStatusClass {
+		display: flex; flex-direction: column;
+	}
+	.registerPage{
+		width: 90%;
+		padding-top: 5%;
+		margin-left: 5%; margin-right: 5%;
+	}
+	
+	#rightList {
+		padding-right: 30px;
+	}
+}
+
+/* ************************************************  @media screen and (max-width: 480px) */
+
+@media screen and (max-width: 480px) {
+	.headerImage {
+		display: none;
+	}
+	.bannerH1 {
+		color: white;
+		font-size: 20px;
+		padding-top: 20px;
+	}
+
+	.leftBar {
+		width: 100%;
+		padding-left: 5%; padding-right: 5%;
+		margin-bottom: 5%;
+	}
+	.quoteDiv {
+		margin-bottom: 5%;
+	}
+	.weatherBar {
+		margin-bottom: 5%;
+	}
+	#showPageStart {
+		width: 100%;
+		justify-content: center;
+		margin: 0px; padding: 0px;
+	}
+
+	.radioStatusClass {
+		display: flex; flex-direction: column;
+		justify-content: left;
+		padding-bottom: 0px;
+	}
+	#footerEmail {
+		display: none;
+	}
+	.footerTextDiv {
+		font-size: 0.75em;
+	}
+}
+
+/* phone screen only */
+
+/* ************************************************  @media screen and (max-width: 320px) */
+
+@media screen and (max-width: 320px) {
+	/* #curMonth,
+	#curYear {
+		font-size: 30px;
+	} */
+	.calendarTop{
+		height: 45px;
+		/* position: relative; */
+	}
+	.calendarTop *{
+		font-size: 18px;
+	}
+		
+	.calendar .calendar-dates .days .day.label {
+		font-size: 10px;
+		font-weight: bold;
+	}
+	.btnArrow i{
+		font-size: 1.5rem;
+	}
+}

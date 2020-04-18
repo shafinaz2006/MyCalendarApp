@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>To Do Calendar</title>
+
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous'>
+
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/
+	font-awesome/4.7.0/css/font-awesome.css'>
+
+	<link rel='stylesheet' type='text/css' href='/style.css'>
+	
+
+</head>
+
+<body>
+
+	<div class='headRow'>
+		<!-- HEADER ROW -->
+
+		<h1 class='bannerH1'> Let's Get Organized!! </h1>
+
+		<div class='row'>
+
+			<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+				<nav class='navbar navbar-expand-md navbarStyle py-0'>
+
+					 <a class='navbar-brand' href='/' style = 'color: white;'>Welcome Today!</a>
+					 <!-- <a class='nav-link' href='/todo/new' style = 'color: white; '>Create New</a>  -->
+					
+
+					<button class='navbar-toggler' type='button' data-toggle='collapse' 
+							data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' 
+							aria-expanded='false' aria-label='Toggle navigation' style='color: white;'>
+
+						<i class='fa fa-bars fa-lg' aria-hidden='true'></i>
+
+					</button>
+
+					<div class='collapse navbar-collapse' id='navbarSupportedContent'>
+
+						<ul class='nav navbar-nav ml-auto' style='padding-right: 25px;' id='rightList'>
+							
+							<li class='nav-item active'>
+								<a class='nav-link' href='/todo/new'> Create New </a>
+							</li>
+							<li class='nav-item active'>
+								<a class='nav-link' href='/contact/new'> Contact Us </a>
+							</li>
+							<% if(!currentUser){ %>
+
+								<li class="nav-item active"  > 
+									<a class="nav-link" href="/login"> Log in </a>
+								</li>
+								<li class="nav-item active"  > 
+									<a class="nav-link" href="/register"> Register </a>
+								</li>
+
+							<% } else { %>
+
+								<li class="nav-item active"> 
+									<a class="nav-link" href="/"> Current User: 
+										<strong><em><%= currentUser.username %> </em></strong> 
+									</a>
+								</li>
+								<li class="nav-item active"> 
+									<a class="nav-link" href="/logout"> Log out </a>
+								</li>
+
+							<% } %>
+							 
+
+						</ul>
+
+					</div>
+
+				</nav>
+
+			</div>
+
+		</div>
+
+	</div>
+	<!-- HEADER ROW END -->
+		
+	<div class='mainContainer'>
+		<!-- main container -->
+		
+		
+		<% if(error && error.length > 0){ %>
+
+		<div class="alert" role="alert" style = 'width: 100%;'>
+			<span style = 'color: black;'>	<%= error %> </span>
+		</div>
+
+		<% } %>
+
+		<% if(success && success.length > 0){ %>
+
+			<div class="alert" role="alert" style = 'width: 100%;'>
+				<span >	<%= success %> </span>
+			</div>
+
+		<% } %>
+			
+		
+		
+		<div class='calendar' id='calendar'>
+			<!-- Calendar -->
+			<div id = 'calendarSide'>
+				<div class = 'calendarTop'>
+
+					<button class='btn btnArrow' id='prevMonth'>
+
+						<i class='fa fa-angle-double-left'></i>
+
+					</button>
+
+					<div>
+						<span id='curMonth'></span>,
+						<span id='curYear'></span>
+					</div>
+
+					<button class='btn btnArrow' id='nextMonth'>
+						<i class='fa fa-angle-double-right'></i>
+					</button>
+
+				</div>
+
+				<!-- <div class='clear'></div>
+	 -->
+				<div class='calendar-dates'>
+					<div class='days'>
+						<div class='day label'>SUN</div>
+						<div class='day label'>MON</div>
+						<div class='day label'>TUE</div>
+						<div class='day label'>WED</div>
+						<div class='day label'>THU</div>
+						<div class='day label'>FRI</div>
+						<div class='day label'>SAT</div>
+
+						<div class='clear'></div>
+					</div>
+
+					<div id='calendarDays' class='days'>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END of Calendar -->
+	
+	
+	
+	
+	
+	

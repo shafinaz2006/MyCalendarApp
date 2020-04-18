@@ -1,0 +1,332 @@
+<%- include('partials/header') %>
+
+	<div class='leftBar'>
+		
+		<!-- Today Bar -->
+		<% var yearId = pageDay.getFullYear()%>
+		<% var monthId = pageDay.getMonth() + 1%>
+		<% var dayId = pageDay.getDate()%>
+		
+		<div class='todayBar'>
+			<div style='display: flex; flex-direction: column;   
+						  align-items: center;'>
+
+				<h1>
+					<%= dayId %>
+				</h1>
+
+				<h3 style='font-size: 2.5rem; paddint-top: 0px;'>
+					<%=pageDay.toLocaleString('default', { month: 'long' })%>
+				</h3>
+
+			</div>
+			
+			<%if(!isLoggedIn){%>
+				<div style='display: flex; flex-direction: column;   
+							  justify-content: space-around; align-items: center'>
+					
+					<h4 style='text-align: center;padding-top: 1.5rem;'>Start/Finish Today: </h4>
+
+					<p style='text-align: center; padding-top: 1rem;'>Login to view your personal calendar</p>
+					
+					<a href='/login' style='text-align: center'>
+						<button class='btn btnSubmit' 
+								style='margin-bottom: 0.5rem; padding: 0.20rem 1rem'>
+							Login
+						</button>
+					</a>
+
+				</div>
+			
+			<%}else{%>
+			
+				<div style='display: flex; flex-direction: column; height: inherit;   
+							  justify-content: space-around;'>
+					
+					<h4 style='padding-bottom: 0.3rem; text-align: center'>Finish Today: </h4>
+					
+					<%if (endTodos.length ===0){%>
+				
+						<p style='text-align: center'>Nothing to finish today!!</p>
+
+						<a href='/todo/new' style = 'text-align:center'>
+							<button class='btn btnSubmit' 
+									style='margin-bottom: 0.5rem; padding: 0.25rem 1rem'>
+								Create New
+							</button>
+						</a>
+
+					<%}else{%>
+
+						<ul class="fa-ul">
+
+							<% for(var i = 0; i< 2 && i< endTodos.length; i++){ %>
+
+								<li>
+									<span class="fa-li" style='padding-left: 0px;'>
+										<i class="fa fa-exclamation-triangle"></i>
+									</span>
+
+									<ul style="list-style: none;;">
+										<li>Title: <%=endTodos[i].title%></li>
+
+										<li>Status:
+											<strong>
+												
+												<%if (!endTodos[i].statusRadio){ %>	Not Started
+												<% } else{ %>	<%= endTodos[i].statusRadio%>
+												<% } %>
+												
+											</strong>
+										</li>
+									</ul>
+								</li>
+
+							<%}%>
+						</ul>
+
+						<a href='/todo/year/<%=yearId%>/month/<%=monthId%>/day/<%=dayId%>' 
+						   style='text-align: center'>
+							<button class='btn btnSubmit' style='margin-bottom: 0.5rem; padding: 0.20rem 1rem'>
+								Details
+							</button>
+						</a>
+
+					<%}%>
+
+				</div>
+				
+			<%}%>
+
+		</div>
+	</div>
+
+	<!-- END of Today BAR -->
+
+	<div class='leftBar' style='border-style: none; justify-content: space-between;'>
+		<!--Middle Bar -->
+
+		<div class='quoteDiv'>
+
+			<h3 style='font-size: 1.5rem; margin-bottom: 5px;'> Today's Quote</h3>
+
+			<p class = 'quotePStyle'>
+				<%= quoteData.quote%>
+			</p>
+			<p style='margin-left: auto'> -
+				<strong>
+					<%= quoteData.author%>
+				</strong>
+			</p>
+
+		</div>
+
+		<div class='startToDoIndexPage'>
+			
+			<!-- <div style='display: flex; flex-direction: column; align-items: center;
+						justify-content: space-around;'> -->
+				
+				<%if(!isLoggedIn){%>
+				
+					 
+					<h4 style='text-align: center;'>World News </h4>
+					<p style='text-align: center;'>Get conoravirus update:</p>
+
+					<a href='https://www.worldometers.info/coronavirus/' target = '_blank' 
+					   style = 'text-align: center;'>
+						<button class='btn btnSubmit' style='margin-bottom: 0.5rem; padding: 0.25rem 1rem; '>
+							Worldometer.info
+						</button>
+					</a>
+					  
+					
+				<%}else{%>
+				
+					<h4 style = 'text-align: center;'>Start Today: </h4>
+			
+					<%if (startTodos.length ===0){%>
+				
+						<!-- <div style='display: flex; flex-direction: column;
+									justify-content: center; align-items:center;'> -->
+
+							<!-- <div style='padding-top: 1rem;'> -->
+								<p style='text-align: center;'>Nothing to start today!!</p>
+								<p style='text-align: center;'>Create one now</p>
+								<a href='/todo/new' style='text-align: center;'>
+									<button class='btn btnSubmit' 
+											style='margin-bottom: 0.5rem; padding: 0.25rem 1rem'>
+										Create New
+									</button>
+								</a>
+							<!-- </div> -->
+							
+						<!-- </div> -->
+				
+					<%}else{%>
+				
+						<div style='display: flex; flex-direction: column; '>
+							<ul class="fa-ul" style='margin-bottom: 0px; margin-left: 2rem;'>
+
+								<% for(var i = 0; i< 2 && i< startTodos.length; i++){ %>
+
+									<li>
+										<span class="fa-li" style='padding-left: 0px;'>
+											<i class="fa fa-bell"></i>
+										</span>
+
+										<ul style="list-style: none">
+											
+											<li>Title: <strong><%=startTodos[i].title%></strong></li>
+											<li>Desc: <%= startTodos[i].description.substring(0, 15)%>...</li>
+											
+										</ul>
+									</li>
+								
+								<% }%>
+							</ul>
+						</div>
+
+
+						<div style='display: flex; flex-direction: column;align-items:center;'>
+							<a href='/todo/year/<%=yearId%>/month/<%=monthId%>/day/<%=dayId%>' 
+										   style='text-align:center;'>
+								<button class='btn btnSubmit' 
+										style='width: 100%; margin-top: 0.7rem; margin-bottom: 0.8rem; 
+											   padding-top: 0px; padding-bottom: 0px'>
+									Details
+								</button>
+							</a>
+						</div>
+						
+					<%}%>
+				
+				<%}%>
+						
+			<!-- </div> -->
+			
+		</div>
+
+	</div>
+	<!--END of Middle Bar -->
+
+	<div class='leftBar' style='border-style: none ; justify-content: space-between;'>
+		<!-- Weather Bar-->
+
+		<div class='weatherBar'>
+
+			<h3 style='font-size: 1.2rem; text-align: center'>Today's Vancouver</h3>
+
+			<p style='font-size: 2rem; font-weight: bold; margin-bottom: 0px;'>
+				<%=weatherData.temperature%>
+					<sup>o</sup>C
+			</p>
+			<% weatherData.weather_icons.forEach(function(icon){ %>
+
+				<img src='<%=icon%>' style="border-radius: 5px; width: 64px; height:64px">
+
+			<%})%>
+
+			<% weatherData.weather_descriptions.forEach(function(des){ %>
+				<p style='font-weight: bold'>
+					<%=des%>
+				</p>
+			<%})%>
+
+			<ul class="fa-ul" style='padding-left: 0px;'>
+
+				<li>
+					<span class="fa-li" style='padding-left: 0px; '>
+
+						<i class="fa fa-bolt"></i>
+					</span>
+					Wind:
+					<%=weatherData.wind_speed%> kmph
+				</li>
+				<li>
+					<span class="fa-li" style='padding-left: 0px; '>
+
+						<i class="fa fa-bolt"></i>
+					</span>
+					Precip:
+					<%=weatherData.precip%> mm </li>
+				<li>
+					<span class="fa-li" style='padding-left: 0px; '>
+
+						<i class="fa fa-bolt"></i>
+					</span>
+					Humidity:
+					<%=weatherData.humidity%> %</li>
+			</ul>
+
+		</div>
+
+		<div class='contactBar'>
+
+			<p> If you have any query, please contact us</p>
+			
+			<a href='/contact/new'>
+				<button class='btn btnSubmit btnContact' > 
+					Contact Us 
+				</button>
+			</a>
+			
+		</div>
+
+		<!-- <a class='btn btn-primary' href='/todo/new' role='button'> Create New </a> -->
+
+	</div>
+
+<script>
+	
+	// var date = new Date();
+
+	// console.log('date in index.ejs: '+ date);
+
+	// let dayId = date.getDate() - 1;
+	// let monthId = date.getMonth() + 1;
+	// let yearId = date.getFullYear();
+
+	// console.log('dayId in index.ejs: ' + dayId);
+	
+	// let hrefSelector = "/todo/year/" + yearId + "/month/" + monthId + "/day/" + dayId;
+	
+	// let calendarMainDiv = document.querySelector('#calendarDays');
+	
+	// console.log('calcalendarMainDiv: ' + calendarMainDiv);
+	
+	// let children = calendarMainDiv.children;
+	
+	// console.log('calendarMainDiv.children: ' + children);
+	
+	// let arr = Array.from(children);
+	
+	// console.log('arr length: ' + arr.length)
+	
+	// console.log('children length: ' + children.length)
+	
+	    
+	// if(typeof(calendarMainDiv) != 'undefined' && calendarMainDiv != null){
+		
+	// console.log('Element exists!');
+		
+	// } else{
+		
+	// console.log('Element does not exist!');
+		
+	// }
+	
+	// document.addEventListener('DOMContentLoaded', function() {
+	// let motionArray = calendarMainDiv.children;
+	//   	console.log(motionArray.length);
+	// });
+	
+	
+	//dayEl.getElementById('calendarday\\_'+dayId).style.color = green;
+	
+
+</script>
+
+	<%- include('partials/footer') %>
+
+
+

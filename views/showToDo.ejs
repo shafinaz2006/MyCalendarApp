@@ -1,0 +1,141 @@
+<%- include('partials/header') %>
+
+<div id='showPage'>
+
+	<div class='showPageStart'>
+		
+		<h4 style='text-align: center; padding-top: 1rem;'>Finish List: <%= dateShow.toLocaleDateString()%> </h4>
+
+		<%if (endTodos.length ===0){%>
+			<div style='padding-top: 1rem; padding-bottom: 1rem;'>
+				<p style = 'text-align: center;'>Nothing in finish list!!</p>
+				
+				<!-- <div style='text-align: center;'>
+					<a href='/todo/new'>
+						<button class='btn btnSubmit'>Create New </button>
+					</a>
+				</div> -->
+			</div>
+		
+		<%}else{%>
+			<ul class='fa-ul'>
+
+				<%endTodos.forEach(function(endTodo){%>
+					<li >
+						<span class='fa-li' >
+							<i class='fa fa-exclamation-triangle'></i>
+						</span>
+
+						<ul style='list-style: none; overflow: hidden'>
+							<li>
+								Title:
+								<%=endTodo.title%>
+							</li>
+							<li>
+								Desc:
+								<%= endTodo.description%>
+							</li>
+							<li>
+								Finish By:
+								<strong>
+									<%= endTodo.endDate.toLocaleDateString()%>
+								</strong>
+							</li>
+							<li>
+								Status:
+								<strong>
+									<%if ( !endTodo.statusRadio){ %>
+										Not Started
+									<% } else{ %>
+										<%= endTodo.statusRadio%>
+									<% } %>
+								</strong>
+							</li>
+							
+							<li style=' padding: 1rem;'>
+								<div class = 'showPageEditButton'>
+									<a href='/todo/<%=endTodo._id%>/edit' style = 'margin-right: 1rem;'>
+										<button class='btn btnSubmit'>	Edit </button>
+									</a>
+
+									<form action="/todo/<%=endTodo._id%>?_method=DELETE", method="POST">
+										<button class='btn btnSubmit'>	Delete	</button>
+									</form>
+								</div>
+							</li>
+							
+						</ul>
+					</li>
+				<% })%>
+			</ul>
+		<% }%>
+	</div>
+
+	<div class='showPageStart'>
+		<h4 style='text-align: center; padding-top: 1rem;'>Start List: <%= dateShow.toLocaleDateString()%> </h4>
+
+		<%if (startTodos.length ===0){%>
+			<div style='padding-top: 1rem; padding-bottom: 1rem;'>
+				<p style = 'text-align: center;'>Nothing in start list!!</p>
+				
+				<!-- <div style='text-align: center;'>
+					<a href='/todo/new'>
+						<button class='btn btnSubmit'>	Create New	</button>
+					</a>
+				</div> -->
+			</div>
+			<%}else{%>
+				<ul class='fa-ul'>
+
+					<%startTodos.forEach(function(startTodo){%>
+						<li>
+							<span class='fa-li' style='padding-left: 0px; '>
+								<i class='fa fa-bell'></i>
+							</span>
+
+							<ul style='list-style: none; overflow: hidden'>
+								<li>
+									Title:
+									<%=startTodo.title%>
+								</li>
+								<li>
+									Desc:
+									<%= startTodo.description%>
+								</li>
+								<li>
+									Finish By:
+									<strong>
+										<%= startTodo.endDate.toLocaleDateString()%>
+									</strong>
+								</li>
+								<li>
+									Status:
+									<strong>
+										<%if (! startTodo.statusRadio){ %>
+											Not Started
+											<% } else{ %>
+												<%= startTodo.statusRadio%>
+													<% } %>
+									</strong>
+								</li>
+								<li style=' padding: 1rem;'>
+									<div class = 'showPageEditButton'>
+										<a href='/todo/<%=startTodo._id%>/edit' style = 'margin-right: 1rem;'>
+											<button class='btn btnSubmit'>	Edit </button>
+										</a>
+										
+										<form action="/todo/<%=startTodo._id%>?_method=DELETE", method="POST">
+											<button class='btn btnSubmit'>	Delete	</button>
+										</form>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<% })%>
+				</ul>
+				<% }%>
+	</div>
+
+</div>	
+
+	<%- include('partials/footer') %>
